@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weird Al Hangman</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var wordChoices = [["Bob"], ['C', 'r', 'a', 'i', 'g', 's', 'l', 'i', 's', 't'], ["Fat"], ["Foil"], ["Gump"], ["Handy"], ["Pancreas"], ["Ricky"], ["Ringtone"], ["Tacky"], ["TMZ"], ["Yoda"]];
+
+      //this will be the loop soon
+
+      var lengthOfWord = wordChoices[1].length;
+        console.log("length is " + lengthOfWord);
+      var theWord = wordChoices[1]; //using the Craigslist word for now
+        console.log("theWord variable is " + theWord);
+        console.log("the first letter in theWord is " + theWord[0]);
+      var theAnswer = theWord;
+      var theAnswer = new Array(lengthOfWord);
+      theAnswer.fill('_');
+
+
+        console.log("at the start theAnswer is " + theAnswer);
+        console.log("and theWord is " + theWord);
+      var theRejects = [];
+        console.log('there are this many rejects now: ' + theRejects.length);
+      var beforeThisGuess = theAnswer;
+      var thisGuess = prompt("Enter a single letter");
+        console.log("the guess was " + thisGuess);
+      var inTheWord = lengthOfWord;
+
+      for (var i = 0; i < lengthOfWord; i++) {
+        if (thisGuess === theWord[i]) {
+          console.log(thisGuess);
+          theAnswer[i] = thisGuess;
+          inTheWord--; //if the guess is in the word, it makes this number less than the length of the word originally - this will show us NOT to put that guess in the reject list
+        }
+      }
+      if (inTheWord === lengthOfWord) {
+          theRejects.push(thisGuess); //puts the guess in the rejcts list
+          console.log('the list of rejects is now ' + theRejects);
+      }
+
+
+        console.log("the answer is now " + theAnswer);
+        console.log('the rejects are ' + theRejects);
+        console.log('there are this many rejects now: ' + theRejects.length);
+
+
+    </script>
+  </body>
+</html>
