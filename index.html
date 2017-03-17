@@ -6,13 +6,15 @@
   </head>
   <body>
     <script type="text/javascript">
-      var wordChoices = [["Bob"], ['C', 'r', 'a', 'i', 'g', 's', 'l', 'i', 's', 't'], ["Fat"], ["Foil"], ["Gump"], ["Handy"], ["Pancreas"], ["Ricky"], ["Ringtone"], ["Tacky"], ["TMZ"], ["Yoda"]];
+      var wordChoices = [['C', 'r', 'a', 'i', 'g', 's', 'l', 'i', 's', 't'], ['F', 'a', 't'], ['F', 'o', 'i', 'l'], ['G', 'u', 'm', 'p'], ['H', 'a', 'n', 'd', 'y'], ['P', 'a', 'n', 'c', 'r', 'e', 'a', 's'], ['R', 'i', 'c', 'k', 'y'], ['R', 'i', 'n', 'g', 't', 'o', 'n', 'e'], ['T', 'a', 'c', 'k', 'y'], ['Y', 'o', 'd', 'a']];
+      //Craigslist, Fat, Foil, Gump, Handy, Pancreas, Ricky, Ringtone, Tacky, Yoda
 
       //this will be the loop soon
-
-      var lengthOfWord = wordChoices[1].length;
+      
+      var lengthOfWord = wordChoices[j].length;
+        console.log(wordChoices[j]);
         console.log("length is " + lengthOfWord);
-      var theWord = wordChoices[1]; //using the Craigslist word for now
+      var theWord = wordChoices[j];
         console.log("theWord variable is " + theWord);
         console.log("the first letter in theWord is " + theWord[0]);
       var theAnswer = theWord;
