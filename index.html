@@ -6,47 +6,80 @@
   </head>
   <body>
     <script type="text/javascript">
-      var wordChoices = [['C', 'r', 'a', 'i', 'g', 's', 'l', 'i', 's', 't'], ['F', 'a', 't'], ['F', 'o', 'i', 'l'], ['G', 'u', 'm', 'p'], ['H', 'a', 'n', 'd', 'y'], ['P', 'a', 'n', 'c', 'r', 'e', 'a', 's'], ['R', 'i', 'c', 'k', 'y'], ['R', 'i', 'n', 'g', 't', 'o', 'n', 'e'], ['T', 'a', 'c', 'k', 'y'], ['Y', 'o', 'd', 'a']];
+      // this is the list of songs I'm going to use
+      var wordChoices = ['Craigslist', 'Fat', 'Foil', 'Gump', 'Handy', 'Pancreas', 'Ricky', 'Ringtone', 'Tacky', 'Yoda'];
       //Craigslist, Fat, Foil, Gump, Handy, Pancreas, Ricky, Ringtone, Tacky, Yoda
 
+
       //this will be the loop soon
-      
-      var lengthOfWord = wordChoices[j].length;
-        console.log(wordChoices[j]);
-        console.log("length is " + lengthOfWord);
-      var theWord = wordChoices[j];
+
+
+
+      //   console.log("length is " + lengthOfWord);
+        console.log(wordChoices[0]);
+      var theWord = wordChoices[0].split("");
+        console.log(theWord);
+      var lengthOfWord = theWord.length;
         console.log("theWord variable is " + theWord);
-        console.log("the first letter in theWord is " + theWord[0]);
+
+        for (var i = 0; i < theWord.length; i++) {
+          console.log("the " + i + "th letter in the word is " + theWord[i]);
+        }
+
       var theAnswer = theWord;
       var theAnswer = new Array(lengthOfWord);
       theAnswer.fill('_');
 
-
-        console.log("at the start theAnswer is " + theAnswer);
-        console.log("and theWord is " + theWord);
+        console.log("at the start the answer is " + theAnswer);
+      //   console.log("and theWord is " + theWord);
       var theRejects = [];
         console.log('there are this many rejects now: ' + theRejects.length);
       var beforeThisGuess = theAnswer;
-      var thisGuess = prompt("Enter a single letter");
-        console.log("the guess was " + thisGuess);
-      var inTheWord = lengthOfWord;
 
-      for (var i = 0; i < lengthOfWord; i++) {
-        if (thisGuess === theWord[i]) {
-          console.log(thisGuess);
-          theAnswer[i] = thisGuess;
-          inTheWord--; //if the guess is in the word, it makes this number less than the length of the word originally - this will show us NOT to put that guess in the reject list
+      //***************************************************
+      for (var n = 0; n < 10; n++) {
+
+
+console.log("***************************");
+      // while (theAnswer != theWord) {
+        var thisGuess = prompt("Enter a single letter");
+          console.log("the guess was " + thisGuess);
+        var inTheWord = lengthOfWord;
+
+        //if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
+        for (var i = 0; i < lengthOfWord; i++) {
+          if (thisGuess === theWord[i]) {
+            console.log("this is the good guess: " + thisGuess);
+            theAnswer[i] = thisGuess;
+            console.log("the answer in the " + i + "th position is " + theAnswer[i]);
+            inTheWord--;
+            console.log("the variable inTheWord is now " + inTheWord);
+              }
+            }
+        if (inTheWord === lengthOfWord) {
+            theRejects.push(thisGuess); //puts the guess in the rejcts list
+            console.log('the list of rejects is now ' + theRejects);
         }
+
+          console.log("the answer is now " + theAnswer);
+          console.log("the word is now " + theWord);
+          console.log('the rejects are ' + theRejects);
+          console.log('there are this many rejects now: ' + theRejects.length);
+      // }
+
+      if (theWord == theAnswer) {
+        console.log("the word is equal to the answer");
       }
-      if (inTheWord === lengthOfWord) {
-          theRejects.push(thisGuess); //puts the guess in the rejcts list
-          console.log('the list of rejects is now ' + theRejects);
+      else {
+        console.log("the word is NOT equal to the answer");
       }
+      //***************************************************
+    }
 
 
-        console.log("the answer is now " + theAnswer);
-        console.log('the rejects are ' + theRejects);
-        console.log('there are this many rejects now: ' + theRejects.length);
+
+
+
 
 
     </script>
