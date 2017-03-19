@@ -16,35 +16,41 @@
 
 
       //   console.log("length is " + lengthOfWord);
-        console.log(wordChoices[0]);
+        console.log("the word is now in the variable wordChoices[0] and is: " + wordChoices[0]);
       var theWord = wordChoices[0].split("");
-        console.log(theWord);
+        console.log("the word is now in the variable theWord and is: " + theWord);
       var lengthOfWord = theWord.length;
-        console.log("theWord variable is " + theWord);
+        console.log("the length of the word is in the variable lengthOfWord and the length is " + lengthOfWord);
 
-        for (var i = 0; i < theWord.length; i++) {
-          console.log("the " + i + "th letter in the word is " + theWord[i]);
+        for (var i = 0; i < lengthOfWord; i++) {
+          console.log("the " + i+1 + "th letter in the word is " + theWord[i]);
         }
 
-      var theAnswer = theWord;
+      // var theAnswer = theWord;
       var theAnswer = new Array(lengthOfWord);
       theAnswer.fill('_');
 
-        console.log("at the start the answer is " + theAnswer);
+        console.log("at the start the answer is in the variable theAnswer and is " + theAnswer);
       //   console.log("and theWord is " + theWord);
       var theRejects = [];
         console.log('there are this many rejects now: ' + theRejects.length);
+        console.log('and the variable theRejects now holds: ' + theRejects);
       var beforeThisGuess = theAnswer;
+        console.log('the variable beforeThisGuess currently holds: ' + beforeThisGuess);
 
       //***************************************************
-      for (var n = 0; n < 10; n++) {
+      // for (theWord.toString() != theAnswer.toString()) {
+
+for (var n = 0; n < 10; n++){
 
 
-console.log("***************************");
+
+console.log("************* beginning of loop **************");
       // while (theAnswer != theWord) {
         var thisGuess = prompt("Enter a single letter");
           console.log("the guess was " + thisGuess);
         var inTheWord = lengthOfWord;
+          console.log('the variable inTheWord is currently: ' + inTheWord);
 
         //if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
         for (var i = 0; i < lengthOfWord; i++) {
@@ -63,21 +69,40 @@ console.log("***************************");
 
           console.log("the answer is now " + theAnswer);
           console.log("the word is now " + theWord);
-          console.log('the rejects are ' + theRejects);
+          console.log('the list of rejects is now ' + theRejects);
           console.log('there are this many rejects now: ' + theRejects.length);
       // }
 
-      if (theWord == theAnswer) {
+      if (theWord.toString() == theAnswer.toString()) {
         console.log("the word is equal to the answer");
       }
       else {
         console.log("the word is NOT equal to the answer");
       }
       //***************************************************
-    }
+    // } /closing the for (theWord.toString() != theAnswer.toString()) {
 
+    // function  isSameAsWord(element, index, array){
+    //   return element == "f" || "a" ||"t";
+    // }
+    //   console.log(["f", "a", "t"].every(isSameAsWord));
 
+      function equivalentArrays(arrayOne, arrayTwo) {
+        if (arrayOne.length !== arrayTwo.length) {
+          return false;
+        }
+        for (var i = 0; i < arrayOne.length; i++) {
+          if (arrayOne[i] !== arrayTwo[i]) {
+              return false;
+          }
+          return true;
+        }
+      }
 
+      var areTheyTheSame = equivalentArrays(theWord, theAnswer);
+      console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
+
+} // end of for (var n = 0; n < 10; n++){
 
 
 
