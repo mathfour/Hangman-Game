@@ -17,117 +17,121 @@
     <div id="theRejectsInHtml"></div>
 
     <script type="text/javascript">
-
-    // this function compares two arrays to see if they are equal
-    function equivalentArrays(arrayOne, arrayTwo) {
-      if (arrayOne.length !== arrayTwo.length) {
-        return false;
-      }
-      for (var i = 0; i < arrayOne.length; i++) {
-        if (arrayOne[i] !== arrayTwo[i]) {
-            return false;
-        }
-      }
-        return true;
-    }
-
-      // this is the list of songs I'm going to use
-      var wordChoices = [
-      'Craigslist',
-      'Fat',
-      'Foil',
-      'Gump',
-      'Handy',
-      'Pancreas',
-      'Ricky',
-      'Ringtone',
-      'Tacky',
-      'Yoda'];
-
-      //this will be the loop soon
-
-
-        console.log("the word is now in the variable wordChoices[0] and is: " + wordChoices[0]);
-
-      var theWord = wordChoices[0].split("");
-        console.log("the word is now in the variable theWord and is: " + theWord);
-
-      var lengthOfWord = theWord.length;
-        console.log("the length of the word is in the variable lengthOfWord and the length is " + lengthOfWord);
-
-
-// CONSOLE LOG CONSOLE LOG CONSOLE LOG
-        for (var i = 0; i < lengthOfWord; i++) {
-          console.log("the " + i+1 + "th letter in the word is " + theWord[i]);
-        }
-// console log console log console log
-
-
-      var theAnswer = new Array(lengthOfWord);
-      theAnswer.fill('_');
-        console.log("at the start the answer is in the variable theAnswer and is " + theAnswer);
-
-      var theRejects = [];
-        console.log('there are this many rejects now: ' + theRejects.length);
-
-        console.log('and the variable theRejects now holds: ' + theRejects);
-
-      var beforeThisGuess = theAnswer;
-        console.log('the variable beforeThisGuess currently holds: ' + beforeThisGuess);
-
-      var areTheyTheSame = equivalentArrays(theWord, theAnswer);
-        console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
-
-
-console.log("************* beginning of loop **************");
-
-      while (areTheyTheSame !== true) {
-        var thisGuess = prompt("Enter a single letter");
-          console.log("the guess was " + thisGuess);
-
-        var inTheWord = lengthOfWord;
-          console.log('the variable inTheWord is currently: ' + inTheWord);
-
-        //if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
-        for (var i = 0; i < lengthOfWord; i++) {
-          if (thisGuess === theWord[i]) {
-
-            console.log("this is the good guess: " + thisGuess);
-            theAnswer[i] = thisGuess;
-
-            console.log("the answer in the " + i + "th position is " + theAnswer[i]);
-
-            inTheWord--;
-
-            console.log("the variable inTheWord is now " + inTheWord);
-
+      $(document).ready(function() {
+          // this function compares two arrays to see if they are equal
+          function equivalentArrays(arrayOne, arrayTwo) {
+            if (arrayOne.length !== arrayTwo.length) {
+              return false;
+            }
+            for (var i = 0; i < arrayOne.length; i++) {
+              if (arrayOne[i] !== arrayTwo[i]) {
+                  return false;
               }
             }
-        if (inTheWord === lengthOfWord) {
-            theRejects.push(thisGuess); //puts the guess in the rejcts list
-              console.log('the list of rejects is now ' + theRejects);
-        }
-// CONSOLE LOG CONSOLE LOG CONSOLE LOG
-          console.log("the answer is now " + theAnswer);
-          console.log("the word is now " + theWord);
-          console.log('the list of rejects is now ' + theRejects);
-          console.log('there are this many rejects now: ' + theRejects.length);
-// console log console log console log
+              return true;
+          }
 
-      var areTheyTheSame = equivalentArrays(theWord, theAnswer);
-          console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
+            // this is the list of songs I'm going to use
+            var wordChoices = [
+            'CRAIGSLIST',
+            'FAT',
+            'FOIL',
+            'GUMP',
+            'HANDY',
+            'PANCREAS',
+            'RICKY',
+            'RINGTONE',
+            'TACKY',
+            'YODA'];
 
-          var container = document.getElementById("theAnswerInHtml"); container.innerHTML = theAnswer;
+            //this will be the loop soon
 
-          var container = document.getElementById("theRejectsInHtml"); container.innerHTML = theRejects;
-          // document.getElementById("theAnswerInHtml").innerHTML = theAnswer;
-          // document.getElementById("theRejectsInHtml").innerHTML = theRejects;
 
-      }
+              // console.log("the word is now in the variable wordChoices[0] and is: " + wordChoices[0]);
 
-      console.log("the word has been solved");
+            var theWord = wordChoices[0].split("");
+              // console.log("the word is now in the variable theWord and is: " + theWord);
 
-    </script>
+            var lengthOfWord = theWord.length;
+              // console.log("the length of the word is in the variable lengthOfWord and the length is " + lengthOfWord);
+
+
+      // CONSOLE LOG CONSOLE LOG CONSOLE LOG
+              // for (var i = 0; i < lengthOfWord; i++) {
+              //   console.log("the " + i+1 + "th letter in the word is " + theWord[i]);
+              // }
+      // console log console log console log
+
+
+            var theAnswer = new Array(lengthOfWord);
+            theAnswer.fill('_');
+              console.log("at the start the answer is in the variable theAnswer and is " + theAnswer);
+
+            var theRejects = [];
+              console.log('there are this many rejects now: ' + theRejects.length);
+
+              console.log('and the variable theRejects now holds: ' + theRejects);
+
+            var beforeThisGuess = theAnswer;
+              console.log('the variable beforeThisGuess currently holds: ' + beforeThisGuess);
+
+            var areTheyTheSame = equivalentArrays(theWord, theAnswer);
+              console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
+
+            // document.onkeyup = function(keyPress) {
+            //      keyPress.key.toUpperCase(); // key that the user pressed
+            //     //  console.log(keyPress.key.toLowerCase());
+            //    }
+
+      console.log("************* beginning of loop **************");
+
+              document.onkeyup = function(keyPress) {
+               var thisGuess = keyPress.key.toUpperCase(); // key that the user pressed
+                console.log(document.onkeyup.keyCode);
+               if (thisGuess.keyCode > 64 && thisGuess.keyCode < 91) {
+                console.log("the guess was " + thisGuess);
+                }
+
+              var inTheWord = lengthOfWord;
+                console.log('the variable inTheWord is currently: ' + inTheWord);
+
+              //if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
+              for (var i = 0; i < lengthOfWord; i++) {
+                if (thisGuess === theWord[i]) {
+
+                  console.log("this is the good guess: " + thisGuess);
+                  theAnswer[i] = thisGuess;
+
+                  console.log("the answer in the " + i + "th position is " + theAnswer[i]);
+
+                  inTheWord--;
+
+                  console.log("the variable inTheWord is now " + inTheWord);
+
+                    }
+                  }
+              if (inTheWord === lengthOfWord) {
+                  theRejects.push(thisGuess); //puts the guess in the rejcts list
+                    console.log('the list of rejects is now ' + theRejects);
+              }
+      // CONSOLE LOG CONSOLE LOG CONSOLE LOG
+                console.log("the answer is now " + theAnswer);
+                console.log("the word is now " + theWord);
+                console.log('the list of rejects is now ' + theRejects);
+                console.log('there are this many rejects now: ' + theRejects.length);
+      // console log console log console log
+
+            var areTheyTheSame = equivalentArrays(theWord, theAnswer);
+                console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
+
+                var container = document.getElementById("theAnswerInHtml"); container.innerHTML = theAnswer.join(' ');
+
+                var container = document.getElementById("theRejectsInHtml"); container.innerHTML = theRejects;
+
+
+          }
+}) // end of $(document).ready(function() { close to line 20
+  </script>
 
 
 
