@@ -87,10 +87,10 @@
 
               document.onkeyup = function(keyPress) {
                var thisGuess = keyPress.key.toUpperCase(); // key that the user pressed
-                console.log(document.onkeyup.keyCode);
-               if (thisGuess.keyCode > 64 && thisGuess.keyCode < 91) {
+                console.log(keyPress.keyCode);
+               if (keyPress.keyCode > 64 && keyPress.keyCode < 91) {
                 console.log("the guess was " + thisGuess);
-                }
+
 
               var inTheWord = lengthOfWord;
                 console.log('the variable inTheWord is currently: ' + inTheWord);
@@ -127,7 +127,7 @@
                 var container = document.getElementById("theAnswerInHtml"); container.innerHTML = theAnswer.join(' ');
 
                 var container = document.getElementById("theRejectsInHtml"); container.innerHTML = theRejects;
-
+              } // end of if (keyPress.keyCode > 64 && keyPress.keyCode < 91)
 
           }
 }) // end of $(document).ready(function() { close to line 20
