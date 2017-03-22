@@ -15,6 +15,7 @@
     <div id="theAnswerInHtml"></div>
     Here are your bad guesses:
     <div id="theRejectsInHtml"></div>
+    <div id="winLoss"></div>
 
     <script type="text/javascript">
       $(document).ready(function() {
@@ -78,24 +79,22 @@
             var areTheyTheSame = equivalentArrays(theWord, theAnswer);
               console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
 
-            // document.onkeyup = function(keyPress) {
-            //      keyPress.key.toUpperCase(); // key that the user pressed
-            //     //  console.log(keyPress.key.toLowerCase());
-            //    }
 
-      console.log("************* beginning of loop **************");
+console.log("************* beginning of loop **************");
 
               document.onkeyup = function(keyPress) {
                var thisGuess = keyPress.key.toUpperCase(); // key that the user pressed
                 console.log(keyPress.keyCode);
-               if (keyPress.keyCode > 64 && keyPress.keyCode < 91) {
+
+              // if (keyPress.keyCode > 64 && keyPress.keyCode < 91) ...... only runs the loop if the key pressed is a letter
+              if (keyPress.keyCode > 64 && keyPress.keyCode < 91) {
                 console.log("the guess was " + thisGuess);
 
-
+              // var inTheWord = lengthOfWord; ...... helps me determine if a letter is NOT in the word so it can be added to the rejects list
               var inTheWord = lengthOfWord;
                 console.log('the variable inTheWord is currently: ' + inTheWord);
 
-              //if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
+              //for (var i = 0; i < lengthOfWord; i++) ...... if the guess is in the word, this next bit makes the number 'inTheWord' less than the length of the word originally - this will show us NOT to put that guess in the reject list
               for (var i = 0; i < lengthOfWord; i++) {
                 if (thisGuess === theWord[i]) {
 
@@ -108,29 +107,43 @@
 
                   console.log("the variable inTheWord is now " + inTheWord);
 
-                    }
-                  }
+                } // end if (thisGuess === theWord[i])
+              } // end for (var i = 0; i < lengthOfWord; i++)
+
+              // if (inTheWord === lengthOfWord) ...... puts the guess in the rejects list if it's not in the word
               if (inTheWord === lengthOfWord) {
                   theRejects.push(thisGuess); //puts the guess in the rejcts list
                     console.log('the list of rejects is now ' + theRejects);
               }
-      // CONSOLE LOG CONSOLE LOG CONSOLE LOG
+
+// CONSOLE LOG CONSOLE LOG CONSOLE LOG
                 console.log("the answer is now " + theAnswer);
                 console.log("the word is now " + theWord);
                 console.log('the list of rejects is now ' + theRejects);
                 console.log('there are this many rejects now: ' + theRejects.length);
-      // console log console log console log
+// console log console log console log
 
             var areTheyTheSame = equivalentArrays(theWord, theAnswer);
                 console.log('the arrays theWord and theAnswer are the same: ' +  areTheyTheSame);
 
-                var container = document.getElementById("theAnswerInHtml"); container.innerHTML = theAnswer.join(' ');
+                var containerOne = document.getElementById("theAnswerInHtml"); containerOne.innerHTML = theAnswer.join(' ');
 
-                var container = document.getElementById("theRejectsInHtml"); container.innerHTML = theRejects;
-              } // end of if (keyPress.keyCode > 64 && keyPress.keyCode < 91)
+                var containerTwo = document.getElementById("theRejectsInHtml"); containerTwo.innerHTML = theRejects;
 
-          }
-}) // end of $(document).ready(function() { close to line 20
+                if (areTheyTheSame === true){
+                  var containerThree = document.getElementById("winLoss"); containerThree.innerHTML = "You Won!";
+                  wannaPlayAgain();
+                }
+              } // end if (keyPress.keyCode > 64 && keyPress.keyCode < 91)
+
+          } // end document.onkeyup = function(keyPress)
+
+function wannaPlayAgain() {
+  console.log("wanna play again log thing");
+}
+
+        }) // end $(document).ready(function()      close to line 20
+
   </script>
 
 
