@@ -28,7 +28,7 @@ Word guessing game based on the songs of Weird Al Yankovic
 # Week 3 Assignment - Instructions
 
 ### Overview
-~~In this assignment, you'll create one of two possible computer games: Hangman or Psychic. These apps will run in the browser, and feature dynamically updated HTML powered by your JavaScript code.~~
+In this assignment, you'll create one of two possible computer games: Hangman or Psychic. These apps will run in the browser, and feature dynamically updated HTML powered by your JavaScript code.
 
 ### Before You Begin
 :heavy_check_mark: 1. Create a new GitHub repo called `Hangman-Game` or `Psychic-Game`, in accordance with the assignment you choose to complete. Then, clone it to your computer.
